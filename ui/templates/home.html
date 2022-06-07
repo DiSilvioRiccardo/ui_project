@@ -1,0 +1,24 @@
+<h1>Bienvenido al sistema de pago de matriculas</h1>
+{% if payment%}
+<h2>Pagar alguna matricula</h2>
+
+<h3>Codigo, Monto, Semestre, Carrera</h3>
+
+{% if tuitions %}
+    {% for tuition in tuitions %}
+        <p>{{ tuition.codigo }} {{ tuition.monto }} {{tuition.semestre}} {{tuition.carrera}} </p>
+        <a href="pay/{{tuition.codigo}}">Pagar esta matricula</a>
+    {% endfor %}
+{% endif %}
+
+{% else %}
+Servicio de pasarela de pago no disponible
+
+{% endif %}
+
+<br>
+{% if balance %}
+<a href="/checkBalance" class="button">Consultar saldo</a>
+{% else %}
+Servicio de consulta de balance no disponible
+{% endif %}

@@ -1,0 +1,22 @@
+Vista de saldo
+
+<form action="/checkBalance" method="post" id="send">
+    {% csrf_token %}
+    <p style="text-align:left;">Ingresar cedula o numero de tarjeta</p>
+    <input id="input-number" type="number" name="input-numero">
+    <input type="submit" value="OK">
+</form>
+
+{% if balance %}
+El balance es {{ balance }}
+{% endif %}
+
+{% if bank %}
+El banco es {{ bank }}
+{% endif %}
+
+{% if error %}
+Hubo un error
+{% endif %}
+<br>
+<a href="/home" class="button">Devolverse a home</a>

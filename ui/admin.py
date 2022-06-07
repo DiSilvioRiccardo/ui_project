@@ -1,0 +1,6 @@
+from django.contrib import admin
+from .models import *
+# Register your models here.
+admin.site.register(Tuition)
+admin.site.register(TuitionPayment)
+admin.site.register(Student)

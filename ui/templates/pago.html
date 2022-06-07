@@ -1,0 +1,41 @@
+Vista de pago {{ id_matricula }}
+
+<form action="/pay/{{id_matricula}}" method="post" id="send">
+    {% csrf_token %}
+    <label for="name">Nombre completo: </label>
+    <input id="name" type="text" name="name">
+    <br>
+    <label for="email">Email: </label>
+    <input id="email" type="email" name="email">
+    <br>
+    <label for="cc">Cedula: </label>
+    <input id="cc" type="number" name="cc">
+    <br>
+    <label for="concept">Concepto de pago: </label>
+    <input id="concept" type="text" name="concept">
+    <br>
+    <label for="sede">Sede: </label>
+    <input id="sede" type="text" name="sede">
+    <br>
+    <label for="method">Medio de pago (EAST BANK O WEST BANK): </label>
+    <input id="method" type="text" name="method">
+    <br>
+    <label for="card-number">Numero de tarjeta: </label>
+    <input id="card-number" type="number" name="card-number">
+    <br>
+    <label for="key">Clave de seguridad: </label>
+    <input id="key" type="number" name="key">
+    <br>
+    <input type="submit" value="OK">
+</form>
+
+{% if error %}
+Hubo un error
+{% endif %}
+
+{% if mensaje %}
+{{ mensaje }}
+{% endif %}
+
+<br>
+<a href="/home" class="button">Devolverse a home</a>
